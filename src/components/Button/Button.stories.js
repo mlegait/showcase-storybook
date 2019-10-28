@@ -7,6 +7,7 @@
 
 import { Add16, Search16 } from '@carbon/icons-react';
 import { action } from '@storybook/addon-actions';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { settings } from 'carbon-components';
 import { iconAddSolid, iconSearch } from 'carbon-icons';
 import React from 'react';
@@ -15,6 +16,12 @@ import ButtonSkeleton from '../../components/Button/Button.Skeleton';
 
 const { prefix } = settings;
 
+const icons = {
+  None: 'None',
+  'Add (Add16 from `@carbon/icons-react`)': 'Add16',
+  'Search (Search16 from `@carbon/icons-react`)': 'Search16',
+};
+
 const iconMap = {
   iconAddSolid,
   iconSearch,
@@ -22,45 +29,74 @@ const iconMap = {
   Search16,
 };
 
+const kinds = {
+  primary: 'primary',
+  secondary: 'secondary',
+  danger: 'danger',
+  ghost: 'ghost',
+};
+
+const sizes = {
+  default: 'default',
+  field: 'field',
+  small: 'small',
+};
+
 const props = {
   regular: () => {
-    const iconToUse = iconMap['none'];
+    const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
     return {
       className: 'some-class',
-      kind: 'primary',
-      disabled: false,
-      size: 'default',
+      kind: select('Button kind (kind)', kinds, 'primary'),
+      disabled: boolean('Disabled (disabled)', false),
+      size: select('Button size (size)', sizes, 'default'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
-      iconDescription: 'Button icon',
+      iconDescription: text(
+        'Icon description (iconDescription)',
+        'Button icon'
+      ),
       onClick: action('onClick'),
       onFocus: action('onFocus'),
-      small: false,
     };
   },
   iconOnly: () => {
-    const iconToUse = iconMap['Add16'];
+    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
     return {
       className: 'some-class',
-      kind: 'primary',
-      disabled: false,
-      size: 'default',
+      kind: select('Button kind (kind)', kinds, 'primary'),
+      disabled: boolean('Disabled (disabled)', false),
+      size: select('Button size (size)', sizes, 'default'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
-      iconDescription: 'Button icon',
-      tooltipPosition: 'bottom',
-      tooltipAlignment: 'center',
+      iconDescription: text(
+        'Icon description (iconDescription)',
+        'Button icon'
+      ),
+      tooltipPosition: select(
+        'Tooltip position (tooltipPosition)',
+        ['top', 'right', 'bottom', 'left'],
+        'bottom'
+      ),
+      tooltipAlignment: select(
+        'Tooltip alignment (tooltipAlignment)',
+        ['start', 'center', 'end'],
+        'center'
+      ),
       onClick: action('onClick'),
       onFocus: action('onFocus'),
     };
   },
   set: () => {
-    const iconToUse = iconMap['none'];
+    const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
     return {
       className: 'some-class',
-      disabled: false,
-      small: false,
-      size: 'default',
+      disabled: boolean('Disabled (disabled)', false),
+      small: boolean('Small (small)', false),
+      size: select('Button size (size)', sizes, 'default'),
       renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
-      iconDescription: 'Button- icon',
+      iconDescription: text(
+        'Icon description (iconDescription)',
+        'Button icon'
+      ),
       onClick: action('onClick'),
       onFocus: action('onFocus'),
     };

@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
 import React from 'react';
 import {
   AccordionItem,
@@ -28,9 +29,17 @@ export default {
   },
 };
 
+const FIRST_ITEM = 'First item';
+const SECOND_ITEM = 'Second item';
+const THIRD_ITEM = 'Third item';
+
 export const defaut = () => (
   <Accordion>
-    <AccordionItem title="Section 1 title" open={false} {...props}>
+    <AccordionItem
+      title={text('The title (title)', 'Section 1 title', FIRST_ITEM)}
+      open={boolean('Open the section (open)', false, FIRST_ITEM)}
+      {...props}
+    >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -38,7 +47,11 @@ export const defaut = () => (
         commodo consequat.
       </p>
     </AccordionItem>
-    <AccordionItem title="Section 2 title" {...props}>
+    <AccordionItem
+      title={text('The title (title)', 'Section 2 title', SECOND_ITEM)}
+      open={boolean('Open the section (open)', false, SECOND_ITEM)}
+      {...props}
+    >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -46,7 +59,11 @@ export const defaut = () => (
         commodo consequat.
       </p>
     </AccordionItem>
-    <AccordionItem title="Section 3 title" {...props}>
+    <AccordionItem
+      title={text('The title (title)', 'Section 3 title', THIRD_ITEM)}
+      open={boolean('Open the section (open)', false, THIRD_ITEM)}
+      {...props}
+    >
       <Select
         onChange={action('onChange')}
         id="select-1"

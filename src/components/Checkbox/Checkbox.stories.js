@@ -13,16 +13,6 @@ import CheckboxSkeleton from '../../components/Checkbox/Checkbox.Skeleton';
 
 const { prefix } = settings;
 
-const props = () => ({
-  className: 'some-class',
-  labelText: 'Checkbox label',
-  indeterminate: false,
-  disabled: false,
-  hideLabel: false,
-  wrapperClassName: '',
-  onChange: action('onChange'),
-});
-
 export default {
   title: 'Components/Checkbox',
   component: Checkbox,
@@ -35,6 +25,16 @@ export default {
   `,
   },
 };
+
+const props = () => ({
+  className: 'some-class',
+  labelText: 'Checkbox label',
+  indeterminate: false,
+  disabled: false,
+  hideLabel: false,
+  wrapperClassName: '',
+  onChange: action('onChange'),
+});
 
 export const checked = () => {
   const checkboxProps = props();
