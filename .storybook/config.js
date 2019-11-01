@@ -9,5 +9,5 @@ addDecorator(story => <Container story={story} />);
 addDecorator(withKnobs);
 addDecorator(withA11y);
 
-// automatically import all files ending in *.stories.js
-configure(require.context('../src', true, /\.stories\.js$/), module);
+// automatically import all files ending in *.stories.js or *.stories.mdx
+configure(require.context('../src', true, /\.stories\.(js|mdx)$/), module);
