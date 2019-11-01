@@ -501,6 +501,7 @@ export default class DatePicker extends Component {
     });
 
     const childArray = React.Children.toArray(children);
+    /* eslint-disable array-callback-return */
     const childrenWithProps = childArray.map((child, index) => {
       if (index === 0 && child.type === DatePickerInput) {
         return React.cloneElement(child, {
@@ -523,6 +524,7 @@ export default class DatePicker extends Component {
         });
       }
     });
+    /* eslint-enable array-callback-return */
     return (
       <div className={`${prefix}--form-item`}>
         <div className={datePickerClasses} {...other}>
