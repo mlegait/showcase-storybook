@@ -43,9 +43,6 @@ const props = {
 export default {
   title: 'Components/Date picker',
   component: DatePicker,
-  parameters: {
-    componentSubtitle: 'Here is a nice subtitle',
-  },
 };
 
 export const primary = () => (
