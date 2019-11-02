@@ -20,7 +20,7 @@ const props = () => ({
 });
 
 export default {
-  title: 'Components/Link',
+  title: 'Link',
   component: Link,
   parameters: {
     componentSubtitle: `

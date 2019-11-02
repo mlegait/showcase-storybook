@@ -41,7 +41,7 @@ const props = {
 };
 
 export default {
-  title: 'Components/Date picker',
+  title: 'Date picker',
   component: DatePicker,
 };
 

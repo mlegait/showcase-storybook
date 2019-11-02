@@ -14,7 +14,7 @@ import CheckboxSkeleton from '../../components/Checkbox/Checkbox.Skeleton';
 const { prefix } = settings;
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Checkbox',
   component: Checkbox,
   parameters: {
     componentSubtitle: `

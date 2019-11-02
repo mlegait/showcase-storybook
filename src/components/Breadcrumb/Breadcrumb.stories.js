@@ -20,7 +20,7 @@ const props = () => ({
 });
 
 export default {
-  title: 'Components/Breadcrumb',
+  title: 'Breadcrumb',
   component: Breadcrumb,
   parameters: {
     componentSubtitle:

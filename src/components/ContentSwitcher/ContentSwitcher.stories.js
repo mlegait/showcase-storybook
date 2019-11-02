@@ -21,7 +21,7 @@ const props = {
 };
 
 export default {
-  title: 'Components/ContentSwitcher',
+  title: 'ContentSwitcher',
   component: ContentSwitcher,
   parameters: {
     componentSubtitle: `

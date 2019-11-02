@@ -110,7 +110,7 @@ const CustomLink = ({ children, href, ...other }) => (
 );
 
 export default {
-  title: 'Components/Button',
+  title: 'Button',
   component: Button,
 };
 

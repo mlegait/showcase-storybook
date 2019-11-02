@@ -17,7 +17,7 @@ const props = () => ({
 });
 
 export default {
-  title: 'Components/CopyButton',
+  title: 'CopyButton',
   component: CopyButton,
   parameters: {
     componentSubtitle:

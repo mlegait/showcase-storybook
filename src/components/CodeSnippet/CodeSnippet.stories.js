@@ -32,7 +32,7 @@ const props = {
 };
 
 export default {
-  title: 'Components/CodeSnippet',
+  title: 'CodeSnippet',
   component: CodeSnippet,
   parameters: {
     componentSubtitle:
