@@ -10,43 +10,27 @@ import React from 'react';
 import ContentSwitcher from '../../components/ContentSwitcher';
 import Switch from '../../components/Switch';
 
-const props = {
-  contentSwitcher: () => ({
-    onChange: action('onChange'),
-  }),
-  switch: () => ({
-    onClick: action('onClick - Switch'),
-    disabled: false,
-  }),
-};
-
 export default {
   title: 'ContentSwitcher',
   component: ContentSwitcher,
 };
 
-export const defaut = () => {
-  const switchProps = props.switch();
-  return (
-    <ContentSwitcher {...props.contentSwitcher()} selectedIndex={0}>
-      <Switch text="First section" {...switchProps} />
-      <Switch text="Second section" {...switchProps} />
-      <Switch text="Third section" {...switchProps} />
-    </ContentSwitcher>
-  );
-};
+export const defaut = () => (
+  <ContentSwitcher onChange={action('onChange')} selectedIndex={0}>
+    <Switch text="First section" onClick={action('Switch - onClick')} />
+    <Switch text="Second section" onClick={action('Switch - onClick')} />
+    <Switch text="Third section" onClick={action('Switch - onClick')} />
+  </ContentSwitcher>
+);
 defaut.story = { name: 'Default' };
 
-export const selected = () => {
-  const switchProps = props.switch();
-  return (
-    <ContentSwitcher {...props.contentSwitcher()} selectedIndex={1}>
-      <Switch text="First section" {...switchProps} />
-      <Switch text="Second section" {...switchProps} />
-      <Switch text="Third section" {...switchProps} />
-    </ContentSwitcher>
-  );
-};
+export const selected = () => (
+  <ContentSwitcher onChange={action('onChange')} selectedIndex={1}>
+    <Switch text="First section" onClick={action('Switch - onClick')} />
+    <Switch text="Second section" onClick={action('Switch - onClick')} />
+    <Switch text="Third section" onClick={action('Switch - onClick')} />
+  </ContentSwitcher>
+);
 selected.story = {
   parameters: {
     docs: {

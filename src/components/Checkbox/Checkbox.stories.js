@@ -26,34 +26,40 @@ export default {
   },
 };
 
-const props = () => ({
-  className: 'some-class',
-  labelText: 'Checkbox label',
-  indeterminate: false,
-  disabled: false,
-  hideLabel: false,
-  wrapperClassName: '',
-  onChange: action('onChange'),
-});
-
 export const checked = () => {
-  const checkboxProps = props();
   return (
     <fieldset className={`${prefix}--fieldset`}>
       <legend className={`${prefix}--label`}>Checkbox heading</legend>
-      <Checkbox defaultChecked {...checkboxProps} id="checkbox-label-1" />
-      <Checkbox defaultChecked {...checkboxProps} id="checkbox-label-2" />
+      <Checkbox
+        defaultChecked
+        labelText="Checkbox 1"
+        onChange={action('onChange')}
+        id="checkbox-label-1"
+      />
+      <Checkbox
+        defaultChecked
+        labelText="Checkbox 2"
+        onChange={action('onChange')}
+        id="checkbox-label-2"
+      />
     </fieldset>
   );
 };
 
 export const unchecked = () => {
-  const checkboxProps = props();
   return (
     <fieldset className={`${prefix}--fieldset`}>
       <legend className={`${prefix}--label`}>Checkbox heading</legend>
-      <Checkbox {...checkboxProps} id="checkbox-label-1" />
-      <Checkbox {...checkboxProps} id="checkbox-label-2" />
+      <Checkbox
+        labelText="Checkbox 1"
+        onChange={action('onChange')}
+        id="checkbox-label-1"
+      />
+      <Checkbox
+        labelText="Checkbox 2"
+        onChange={action('onChange')}
+        id="checkbox-label-2"
+      />
     </fieldset>
   );
 };

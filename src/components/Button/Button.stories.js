@@ -42,89 +42,76 @@ const sizes = {
   small: 'small',
 };
 
-const props = {
-  regular: () => {
-    const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
-    return {
-      className: 'some-class',
-      kind: select('Button kind (kind)', kinds, 'primary'),
-      disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, 'default'),
-      renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
-      iconDescription: text(
-        'Icon description (iconDescription)',
-        'Button icon'
-      ),
-      onClick: action('onClick'),
-      onFocus: action('onFocus'),
-    };
-  },
-  iconOnly: () => {
-    const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
-    return {
-      className: 'some-class',
-      kind: select('Button kind (kind)', kinds, 'primary'),
-      disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, 'default'),
-      renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
-      iconDescription: text(
-        'Icon description (iconDescription)',
-        'Button icon'
-      ),
-      tooltipPosition: select(
-        'Tooltip position (tooltipPosition)',
-        ['top', 'right', 'bottom', 'left'],
-        'bottom'
-      ),
-      tooltipAlignment: select(
-        'Tooltip alignment (tooltipAlignment)',
-        ['start', 'center', 'end'],
-        'center'
-      ),
-      onClick: action('onClick'),
-      onFocus: action('onFocus'),
-    };
-  },
-  set: () => {
-    const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
-    return {
-      className: 'some-class',
-      disabled: boolean('Disabled (disabled)', false),
-      small: boolean('Small (small)', false),
-      size: select('Button size (size)', sizes, 'default'),
-      renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
-      iconDescription: text(
-        'Icon description (iconDescription)',
-        'Button icon'
-      ),
-      onClick: action('onClick'),
-      onFocus: action('onFocus'),
-    };
-  },
-};
-
 export default {
   title: 'Button',
   component: Button,
 };
 
 export const dflt = () => {
-  const regularProps = props.regular();
+  const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
   return (
-    <Button {...regularProps} className="some-class">
+    <Button
+      className="some-class"
+      kind={select('Button kind (kind)', kinds, 'primary')}
+      disabled={boolean('Disabled (disabled)', false)}
+      size={select('Button size (size)', sizes, 'default')}
+      renderIcon={!iconToUse || iconToUse.svgData ? undefined : iconToUse}
+      iconDescription={text(
+        'Icon description (iconDescription)',
+        'Button icon'
+      )}
+      onClick={action('onClick')}
+      onFocus={action('onFocus')}
+    >
       Button
     </Button>
   );
 };
 dflt.story = { name: 'Default' };
 
-export const iconOnlyButtons = () => (
-  <Button {...props.iconOnly()} hasIconOnly />
-);
+export const iconOnlyButtons = () => {
+  const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
+  return (
+    <Button
+      hasIconOnly
+      className="some-class"
+      kind={select('Button kind (kind)', kinds, 'primary')}
+      disabled={boolean('Disabled (disabled)', false)}
+      size={select('Button size (size)', sizes, 'default')}
+      renderIcon={!iconToUse || iconToUse.svgData ? undefined : iconToUse}
+      iconDescription={text(
+        'Icon description (iconDescription)',
+        'Button icon'
+      )}
+      tooltipPosition={select(
+        'Tooltip position (tooltipPosition)',
+        ['top', 'right', 'bottom', 'left'],
+        'bottom'
+      )}
+      tooltipAlignment={select(
+        'Tooltip alignment (tooltipAlignment)',
+        ['start', 'center', 'end'],
+        'center'
+      )}
+      onClick={action('onClick')}
+      onFocus={action('onFocus')}
+    />
+  );
+};
 iconOnlyButtons.story = { name: 'Icon-only button' };
 
 export const setOfButtons = () => {
-  const setProps = props.set();
+  const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
+  const setProps = {
+    className: 'some-class',
+    disabled: boolean('Disabled (disabled)', false),
+    small: boolean('Small (small)', false),
+    size: select('Button size (size)', sizes, 'default'),
+    renderIcon: !iconToUse || iconToUse.svgData ? undefined : iconToUse,
+    iconDescription: text('Icon description (iconDescription)', 'Button icon'),
+    onClick: action('onClick'),
+    onFocus: action('onFocus'),
+  };
   return (
     <div className={`${prefix}--btn-set`}>
       <Button kind="secondary" {...setProps}>

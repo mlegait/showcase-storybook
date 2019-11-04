@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { settings } from 'carbon-components';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import classNames from 'classnames';
-import { settings } from 'carbon-components';
 
 const { prefix } = settings;
 
@@ -126,6 +126,10 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   onChange: () => {},
   indeterminate: false,
+  disabled: false,
+  hideLabel: false,
+  wrapperClassName: '',
+  className: '',
 };
 
 export default Checkbox;
