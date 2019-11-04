@@ -47,7 +47,13 @@ export default {
   component: Button,
 };
 
-export const dflt = () => {
+export const primary = () => <Button kind="primary">Primary</Button>;
+
+export const secondary = () => <Button kind="secondary">Secondary</Button>;
+
+export const danger = () => <Button kind="danger">Danger</Button>;
+
+export const classic = () => {
   const iconToUse = iconMap[select('Icon (icon)', icons, 'none')];
   return (
     <Button
@@ -67,7 +73,36 @@ export const dflt = () => {
     </Button>
   );
 };
-dflt.story = { name: 'Default' };
+
+export const edgeCase = () => {
+  const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
+  return (
+    <Button
+      hasIconOnly
+      className="some-class"
+      kind={select('Button kind (kind)', kinds, 'danger')}
+      disabled={boolean('Disabled (disabled)', true)}
+      size={select('Button size (size)', sizes, 'field')}
+      renderIcon={!iconToUse || iconToUse.svgData ? undefined : iconToUse}
+      iconDescription={text(
+        'Icon description (iconDescription)',
+        'Button icon'
+      )}
+      tooltipPosition={select(
+        'Tooltip position (tooltipPosition)',
+        ['top', 'right', 'bottom', 'left'],
+        'left'
+      )}
+      tooltipAlignment={select(
+        'Tooltip alignment (tooltipAlignment)',
+        ['start', 'center', 'end'],
+        'center'
+      )}
+      onClick={action('onClick')}
+      onFocus={action('onFocus')}
+    ></Button>
+  );
+};
 
 export const iconOnlyButtons = () => {
   const iconToUse = iconMap[select('Icon (icon)', icons, 'Add16')];
