@@ -112,7 +112,7 @@ const carbonFlatpickrMonthSelectPlugin = config => fp => {
 };
 
 /**
- * Date pickers allow users to select a single or a range of dates.
+ * Date pickers allow users to select a **single or a range of dates**.
  */
 export default class DatePicker extends Component {
   static propTypes = {

@@ -103,51 +103,25 @@ const props = {
   },
 };
 
-const CustomLink = ({ children, href, ...other }) => (
-  <a href={href} {...other}>
-    {children}
-  </a>
-);
-
 export default {
   title: 'Button',
   component: Button,
 };
 
-export const defaut = () => {
+export const dflt = () => {
   const regularProps = props.regular();
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Button {...regularProps} className="some-class">
-        Button
-      </Button>
-      &nbsp;
-      <Button {...regularProps} href="#" className="some-class">
-        Link
-      </Button>
-      &nbsp;
-      <Button {...regularProps} as="p" href="#" className="some-class">
-        Element
-      </Button>
-      &nbsp;
-      <Button {...regularProps} as={CustomLink} href="#" className="some-class">
-        Custom component
-      </Button>
-    </div>
+    <Button {...regularProps} className="some-class">
+      Button
+    </Button>
   );
 };
-defaut.story = { name: 'Default' };
+dflt.story = { name: 'Default' };
 
 export const iconOnlyButtons = () => (
   <Button {...props.iconOnly()} hasIconOnly />
 );
-iconOnlyButtons.story = { name: 'Icon-only buttons' };
+iconOnlyButtons.story = { name: 'Icon-only button' };
 
 export const setOfButtons = () => {
   const setProps = props.set();
@@ -171,15 +145,7 @@ setOfButtons.story = {
   },
 };
 
-export const skeleton = () => (
-  <div>
-    <ButtonSkeleton />
-    &nbsp;
-    <ButtonSkeleton href="#" />
-    &nbsp;
-    <ButtonSkeleton size="small" />
-  </div>
-);
+export const skeleton = () => <ButtonSkeleton />;
 skeleton.story = {
   parameters: {
     docs: {

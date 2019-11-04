@@ -94,7 +94,6 @@ It also ships with a calendar icon inside the input field. The calendar will
 open when the input is focused, and the user can both type in a date or select a 
 day from the calendar.
       `,
-      // 'A single Date Picker consists of an input field and a calendar.',
     },
   },
 };

@@ -15,11 +15,15 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { getNextIndex, keys, matches } from '../../internal/keyboard';
 import { composeEventHandlers } from '../../tools/events';
-import { getNextIndex, matches, keys } from '../../internal/keyboard';
 
 const { prefix } = settings;
 
+/**
+ * The Content Switcher component manipulates the content shown following an exclusive or **“either/or” pattern**.
+ * Create Switch components for each section in the content switcher.
+ */
 function ContentSwitcher({
   children,
   className: customClassName,

@@ -23,12 +23,6 @@ const props = {
 export default {
   title: 'ContentSwitcher',
   component: ContentSwitcher,
-  parameters: {
-    componentSubtitle: `
-    The Content Switcher component manipulates the content shown following an exclusive or “either/or” pattern.
-    Create Switch components for each section in the content switcher.
-  `,
-  },
 };
 
 export const defaut = () => {
